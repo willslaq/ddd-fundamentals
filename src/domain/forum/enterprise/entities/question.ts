@@ -5,8 +5,8 @@ import { Optional } from "@/core/types/optional";
 import dayjs from "dayjs";
 
 interface QuestionProps {
-  authorId: string;
-  bestAnswerId: UniqueEntityID | null;
+  authorId: UniqueEntityID;
+  bestAnswerId?: UniqueEntityID;
   title: string;
   content: string;
   slug: Slug;
@@ -24,6 +24,7 @@ export class Question extends Entity<QuestionProps> {
   get bestAnswerId() {
     return this.props.bestAnswerId;
   }
+
   get title() {
     return this.props.title;
   }
@@ -56,7 +57,7 @@ export class Question extends Entity<QuestionProps> {
     this.touch();
   }
 
-  set bestAnswerId(bestAnswerId: UniqueEntityID | null) {
+  set bestAnswerId(bestAnswerId: UniqueEntityID | undefined) {
     if (this.props.bestAnswerId) {
       this.props.bestAnswerId = bestAnswerId;
       this.touch();
