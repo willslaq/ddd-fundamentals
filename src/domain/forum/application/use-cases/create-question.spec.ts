@@ -1,22 +1,22 @@
-import { InMemoryQuestionsRepository } from "test/repositories/in-memory-questions-repository";
-import { CreateQuestionUseCase } from "./create-question";
+import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
+import { CreateQuestionUseCase } from './create-question'
 
-let inMemoryQuestionsRepository: InMemoryQuestionsRepository;
-let createQuestion: CreateQuestionUseCase;
+let inMemoryQuestionsRepository: InMemoryQuestionsRepository
+let createQuestion: CreateQuestionUseCase
 
-describe("Create question", () => {
+describe('Create question', () => {
   beforeEach(() => {
-    inMemoryQuestionsRepository = new InMemoryQuestionsRepository();
-    createQuestion = new CreateQuestionUseCase(inMemoryQuestionsRepository);
-  });
+    inMemoryQuestionsRepository = new InMemoryQuestionsRepository()
+    createQuestion = new CreateQuestionUseCase(inMemoryQuestionsRepository)
+  })
 
-  it("should be able to create a question", async () => {
+  it('should be able to create a question', async () => {
     const { question } = await createQuestion.execute({
-      authorId: "1",
-      content: "content",
-      title: "title",
-    });
+      authorId: '1',
+      content: 'content',
+      title: 'title',
+    })
 
-    expect(question.id).toBeTruthy();
-  });
-});
+    expect(question.id).toBeTruthy()
+  })
+})
