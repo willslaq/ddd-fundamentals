@@ -1,12 +1,14 @@
 {
-  "extends": [
-    "@rocketseat/eslint-config/node",
-    "plugin:vitest-globals/recommended"
-  ],
-  "rules": {
-    "no-useless-constructor": "off"
-  },
-  "env": {
-    "vitest-globals/env": true
-  }
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"@rocketseat/eslint-config/node",
+		"plugin:vitest-globals/recommended"
+	],
+  "plugins": ["@typescript-eslint"],
+	"rules": {
+		"no-useless-constructor": "off"
+	},
+	"env": {
+		"vitest-globals/env": true
+	}
 }
